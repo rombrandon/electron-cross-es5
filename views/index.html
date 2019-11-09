@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <h1>index process</h1>
+    <button id="push">打开home process</button>
+    <button id="close">关闭home</button>
+    <button id="closeSelf">关闭当前</button>
+    <button id="send">发送消息</button>
+    <br>
+    <input id="message" type="text" value="index的消息" placeholder="请输入消息内容">
+    <p id="result"></p>
+    <script>
+      const router = require('../router')
+      // 加载更多进程
+      document.getElementById('push').addEventListener('click', function () {
+        // focus (第一次打开进程设置无效)
+        router.push({name: 'home', config: {}, focus: false}).then(function () {
+          document.getElementById('result').innerHTML = '页面打开成功'
+        })
+      })
+      // 发送消息
+      document.getElementById('send').addEventListener('click', function () {
+        const message = document.getElementById('message').value
+        router.send({name: 'home'}, {message: message, time: +new Date()}).then(function (value) {
+          document.getElementById('result').innerHTML = '消息已被home成功接收，并返回' + value
+        })
+      })
+      // 关闭窗口
+      document.getElementById('close').addEventListener('click', function () {
+        router.close({name: 'home'})
+      })
+      // 关闭当前
+      document.getElementById('closeSelf').addEventListener('click', function () {
+        router.close()
+      })
+    </script>
+  </body>
+</html>

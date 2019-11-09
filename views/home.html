@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <h1>home process</h1>
+    <button id="on">监听消息</button>
+    <button id="off">解绑消息</button>
+    <p id="message">...</p>
+    <script>
+      const router = require('../router')
+      var listener
+      // 监听消息
+      function addListener () {
+        listener = router.on(function (message) {
+          document.getElementById('message').innerHTML = JSON.stringify(message)
+          return '[ok' + +new Date() + ']'
+        })
+      }
+      addListener()
+      document.getElementById('on').addEventListener('click', function () {
+        if (!listener) {
+          addListener()
+        }
+      })
+      // 解绑消息
+      document.getElementById('off').addEventListener('click', function () {
+        router.off(listener)
+        listener = null
+      })
+    </script>
+  </body>
+</html>

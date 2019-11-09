@@ -1,0 +1,23 @@
+{
+  "name": "electron-cross-es5",
+  "version": "1.0.0",
+  "description": "A es5 demo for electron-cross",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron-cross": "0.0.3"
+  },
+  "devDependencies": {
+    "electron": "^6.0.6"
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "electron-cross",
+    "demo"
+  ],
+  "author": "Brandon",
+  "license": "MIT"
+}
