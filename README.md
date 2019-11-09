@@ -16,4 +16,4 @@ npm start
 ```
 ### 更多
 
-ES6 demo [electron-cross-es6](https://github.com/rombrandon/electron-cross-es6)
+ES6 Vue demo [electron-cross-vue](https://github.com/rombrandon/electron-cross-vue)
